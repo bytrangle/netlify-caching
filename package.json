@@ -1,0 +1,21 @@
+{
+  "name": "upload-image-serverless",
+  "version": "1.0.0",
+  "description": "A website that allows users to upload silly cat images without using a server",
+  "main": "handler.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@netlify/functions": "^2.6.3",
+    "astro": "^4.7.1",
+    "aws-sdk": "^2.1612.0"
+  }
+}

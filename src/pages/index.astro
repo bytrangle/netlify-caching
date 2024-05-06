@@ -1,0 +1,78 @@
+---
+
+---
+<!-- Below is your "component template." It's just HTML, but with
+     some magic sprinkled in to help you build great templates. -->
+<html>
+  <head>
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+      }
+      body {
+        font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
+      }
+      a {
+        text-decoration: none;
+      }
+      .aligner {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
+      .button {
+        background-color: #1bb76e;
+        border-radius: 3px;
+        color: #fff;
+        display: inline-block;
+        height: 35px;
+        padding: 7px 14px 0px;
+        text-align: center;
+      }
+      #drop {
+        height: 200px;
+        width: 200px;
+        border-radius: 100px;
+        color: #fff;
+        background-color: #baf;
+        font-size: 20px;
+        display: flex;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Silly Cat Society</h1>
+    <div class="aligner">
+      <div id="drop">Drop files here.</div>
+      <div id="list">
+        <h2>Upload Files:</h2>
+        <a href="/image" class="button">Submit</a>
+      </div>
+    </div>
+  </body>
+  <script>
+    const drop = document.getElementById("drop")
+    const list = document.getElementById("list")
+  const apiBaseUrl = "https://26lbetkmg3.execute-api.us-east-1.amazonaws.com/dev"
+
+  function cancel(e: Event) {
+    e.preventDefault()
+    return false
+  }
+
+  function handleDrop(e: DragEvent) {
+    e.preventDefault()
+    const dt = e.dataTransfer
+    const files = dt.files
+    console.log({ files })
+  }
+
+  drop.addEventListener('dragenter', cancel)
+  drop.addEventListener("dragover", cancel)
+  drop.addEventListener("drop", handleDrop)
+  </script>
+</html>
