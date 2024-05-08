@@ -14,6 +14,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@netlify/edge-functions": "^2.6.1",
     "@netlify/functions": "^2.6.3",
     "astro": "^4.7.1",
     "aws-sdk": "^2.1612.0"
