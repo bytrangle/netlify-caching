@@ -3,8 +3,18 @@ import type { Config, Context } from "@netlify/edge-functions"
 export default async (request: Request, context: Context) => {
     const now = new Date()
     const body = `
-        <p>All the content you'll see on this page is served under the root URL with the help of
-        <strong>Netlify Edge Functions</strong> and <strong>Cache-key variations</strong>!</p>
+      <!DOCTYPE html>
+      <html>
+        <head>
+          <title>Silly Cat Society</title>
+          <link rel="stylesheet" href="/styles/global.css">
+        </head>
+        <body>
+          <p>All the content you'll see on this page is served under the root URL with the help of
+            <strong>Netlify Edge Functions</strong> and <strong>Cache-key variations</strong>!
+          </p>
+        </body>
+      </html>
     `
     const cacheMaxAge = 60 // measured in seconds
     // let elapsedTime = cacheMaxAge
