@@ -1,4 +1,5 @@
 import type { Config, Context } from "@netlify/edge-functions"
+import settingIcon from "../../src/images/setting-svgrepo-com.svg"
 
 export default async (request: Request, context: Context) => {
     const now = new Date()
@@ -10,9 +11,11 @@ export default async (request: Request, context: Context) => {
           <link rel="stylesheet" href="/styles/global.css">
         </head>
         <body>
-          <p>All the content you'll see on this page is served under the root URL with the help of
-            <strong>Netlify Edge Functions</strong> and <strong>Cache-key variations</strong>!
-          </p>
+          <div class="wrapper">
+            <h1>Silly Cat Society</h1>
+            <p>Welcome! This is the place where you can chill with meow meow.</p>
+            ${settingIcon}
+          </div>
         </body>
       </html>
     `
