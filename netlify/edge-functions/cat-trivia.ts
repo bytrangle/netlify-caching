@@ -10,7 +10,19 @@ export default async (request: Request, context: Context) => {
           <link rel="stylesheet" href="/styles/global.css">
           <style>
             .image-container {
-              position: relative
+              position: relative;
+            }
+            .icon-container {
+              background-color: #fff;
+              mask-image: url("/images/setting-icon.svg");
+              width: 24px;
+              height: 24px;
+              mask-size: contain;
+              mask-position: center;
+              mask-repeat: no-repeat;
+              position: absolute;
+              right: 1%;
+              top: 0;
             }
           </style>
         </head>
@@ -20,10 +32,11 @@ export default async (request: Request, context: Context) => {
             <p>Welcome! This is the place where you can chill with meow meow.</p>
             <div class="image-container">
               <image src="/images/mr-fresh.png" alt="mr fresh the cat" />
-              <object type="image/svg+xml" data="/images/setting-icon.svg"
-                width="24" height="24"
-                style="position: absolute;right:1%;color:white"
-              ></object>
+              <div icon-container></div>
+              // <object type="image/svg+xml" data="/images/setting-icon.svg"
+              //   width="24" height="24"
+              //   style="position: absolute;right:1%;color:white"
+              // ></object>
             </div>
           </div>
         </body>
