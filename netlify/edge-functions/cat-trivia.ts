@@ -32,9 +32,10 @@ export default async (request: Request, context: Context) => {
             <p>Welcome! This is the place where you can chill with meow meow.</p>
             <div class="image-container">
               <image src="/images/mr-fresh.png" alt="mr fresh the cat" />
-              <div class="icon-container"></div>
+              <div id="setting-icon" class="icon-container"></div>
             </div>
           </div>
+          <script src="/js/image-transformation-settings.js"></script>
         </body>
       </html>
     `
@@ -60,5 +61,5 @@ export default async (request: Request, context: Context) => {
 export const config: Config = {
     cache: "manual", // opt in to caching
     path: "/*",
-    excludedPath: ["/*.css", "/*.svg", "/*.png", "/*.jp(e?)g", "/.netlify/images*"]
+    excludedPath: ["/*.css", "/*.js", "/*.svg", "/*.png", "/*.jp(e?)g", "/.netlify/images*"]
 }
