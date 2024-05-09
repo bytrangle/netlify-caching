@@ -33,10 +33,6 @@ export default async (request: Request, context: Context) => {
             <div class="image-container">
               <image src="/images/mr-fresh.png" alt="mr fresh the cat" />
               <div icon-container></div>
-              // <object type="image/svg+xml" data="/images/setting-icon.svg"
-              //   width="24" height="24"
-              //   style="position: absolute;right:1%;color:white"
-              // ></object>
             </div>
           </div>
         </body>
