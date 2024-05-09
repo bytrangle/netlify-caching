@@ -19,7 +19,7 @@ export default async (request: Request, context: Context) => {
             <h1>Silly Cat Society</h1>
             <p>Welcome! This is the place where you can chill with meow meow.</p>
             <div class="image-container">
-              <image src="mr-fresh.png" alt="mr fresh the cat" />
+              <image src="/images/mr-fresh.png" alt="mr fresh the cat" />
               <object type="image/svg+xml" data="/images/setting-icon.svg"></object>
             </div>
           </div>
