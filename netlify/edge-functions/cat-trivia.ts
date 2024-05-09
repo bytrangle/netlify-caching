@@ -32,7 +32,7 @@ export default async (request: Request, context: Context) => {
             <p>Welcome! This is the place where you can chill with meow meow.</p>
             <div class="image-container">
               <image src="/images/mr-fresh.png" alt="mr fresh the cat" />
-              <div icon-container></div>
+              <div class="icon-container"></div>
             </div>
           </div>
         </body>
