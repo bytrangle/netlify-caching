@@ -9,7 +9,7 @@ export default async (request: Request, context: Context) => {
           <title>Silly Cat Society</title>
           <link rel="stylesheet" href="/styles/global.css">
           <style>
-            image-container {
+            .image-container {
               position: relative
             }
           </style>
