@@ -1,5 +1,4 @@
 import type { Config, Context } from "@netlify/edge-functions"
-import settingIcon from "../../src/images/setting-svgrepo-com.svg"
 
 export default async (request: Request, context: Context) => {
     const now = new Date()
@@ -14,7 +13,7 @@ export default async (request: Request, context: Context) => {
           <div class="wrapper">
             <h1>Silly Cat Society</h1>
             <p>Welcome! This is the place where you can chill with meow meow.</p>
-            ${settingIcon}
+            <object type="image/svg+xml" data="/images.setting-icon.svg"></object>
           </div>
         </body>
       </html>
