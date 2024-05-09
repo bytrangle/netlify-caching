@@ -8,12 +8,20 @@ export default async (request: Request, context: Context) => {
         <head>
           <title>Silly Cat Society</title>
           <link rel="stylesheet" href="/styles/global.css">
+          <style>
+            object svg {
+              fill: white
+            }
+          </style>
         </head>
         <body>
           <div class="wrapper">
             <h1>Silly Cat Society</h1>
             <p>Welcome! This is the place where you can chill with meow meow.</p>
-            <object type="image/svg+xml" data="/images/setting-icon.svg"></object>
+            <div class="image-container">
+              <image src="mr-fresh.png" alt="mr fresh the cat" />
+              <object type="image/svg+xml" data="/images/setting-icon.svg"></object>
+            </div>
           </div>
         </body>
       </html>
@@ -40,5 +48,5 @@ export default async (request: Request, context: Context) => {
 export const config: Config = {
     cache: "manual", // opt in to caching
     path: "/*",
-    excludedPath: ["/*.css", "/*.svg"]
+    excludedPath: ["/*.css", "/*.svg", "/*.png", "/*.jpe?g"]
 }
