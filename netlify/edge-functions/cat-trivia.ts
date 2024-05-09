@@ -40,5 +40,5 @@ export default async (request: Request, context: Context) => {
 export const config: Config = {
     cache: "manual", // opt in to caching
     path: "/*",
-    excludedPath: ["/*.css"]
+    excludedPath: ["/*.css", "/*.svg"]
 }
