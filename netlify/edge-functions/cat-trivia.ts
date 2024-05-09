@@ -9,8 +9,8 @@ export default async (request: Request, context: Context) => {
           <title>Silly Cat Society</title>
           <link rel="stylesheet" href="/styles/global.css">
           <style>
-            object svg {
-              fill: white
+            image-container {
+              position: relative
             }
           </style>
         </head>
@@ -20,7 +20,10 @@ export default async (request: Request, context: Context) => {
             <p>Welcome! This is the place where you can chill with meow meow.</p>
             <div class="image-container">
               <image src="/images/mr-fresh.png" alt="mr fresh the cat" />
-              <object type="image/svg+xml" data="/images/setting-icon.svg"></object>
+              <object type="image/svg+xml" data="/images/setting-icon.svg"
+                width="24" height="24"
+                style="position: absolute;right:1%;color:white"
+              ></object>
             </div>
           </div>
         </body>
