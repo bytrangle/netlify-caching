@@ -1,7 +1,10 @@
 import type { Config, Context } from "@netlify/edge-functions"
+import { getStore } from "@netlify/blobs"
 
 export default async (request: Request, context: Context) => {
     const now = new Date()
+    const catFood = getStore("cat-food")
+    console.log({ catFood })
     const body = `
       <!DOCTYPE html>
       <html>
