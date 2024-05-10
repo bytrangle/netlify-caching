@@ -1,0 +1,30 @@
+---
+const INCLUDE_PRICE_INFO = ""
+---
+<html lang="en">
+  <head>
+    <title>Cat Trivia</title>
+    <link rel="stylesheet" href="/styles/global.css">
+  </head>
+  <body>
+    <div>
+        <h1>Did You Know?</h1>
+        <blockquote id="blockquote"></blockquote>
+    </div>
+    <script>
+      const response = await fetch("https://catfact.ninja/fact", {
+        method: "GET",
+        headers: {
+          "accept": "application/json",
+          "X-CSRF-TOKEN": ""
+        }
+      })
+      const json = await response.json()
+      console.log(json)
+      const blockquote = document.getElementById("blockquote")
+      if (json.fact) {
+        blockquote.append(json.fact)
+      }
+    </script>
+  </body>
+</html>
