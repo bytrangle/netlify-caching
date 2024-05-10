@@ -5,6 +5,7 @@ export default async (request: Request, context: Context) => {
     const now = new Date()
     const catFood = getStore("cat-food")
     console.log({ catFood })
+    await catFood.set("poke-bowl", "for general carpentry")
     const body = `
       <!DOCTYPE html>
       <html>
@@ -37,6 +38,7 @@ export default async (request: Request, context: Context) => {
               <image src="/images/mr-fresh.png" alt="mr fresh the cat" />
               <div id="setting-icon" class="icon-container"></div>
             </div>
+            <p>Poke bowl blobs set for Cat Food store</p>
           </div>
           <script src="/js/image-transformation-settings.js"></script>
         </body>
