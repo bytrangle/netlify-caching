@@ -11,6 +11,7 @@ export default async (request: Request, context: Context) => {
     const fact = json.data[0]
     const blockquoteRegex = /<blockquote id="blockquote.*>(?<text>.*?)<\/blockquote>/
     const matched = blockquoteRegex.exec(page)
+    console.log({ matched })
     if (matched.groups && matched.groups["text"]) {
         const blockquoteText = matched.groups["text"]
         console.log({ blockquoteText })
