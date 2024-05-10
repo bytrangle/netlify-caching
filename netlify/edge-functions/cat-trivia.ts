@@ -6,17 +6,18 @@ export default async (request: Request, context: Context) => {
     const page = await response.text()
     // regex for searching between blockquote tags
     const catFactResponse = await fetch("https://meowfacts.herokuapp.com")
-    const json = await response.json()
+    const json = await catFactResponse.json()
     console.log(json)
     const fact = json.data[0]
-    const blockquoteRegex = /<blockquote id="blockquote.*>(?<text>.*?)<\/blockquote>/
+    // Regex for text between block quote
+    const blockquoteRegex = /(?<=<blockquote.+>).+(?=<\/blockquote>)/
     const matched = blockquoteRegex.exec(page)
     console.log({ matched })
-    if (matched.groups && matched.groups["text"]) {
-        const blockquoteText = matched.groups["text"]
-        console.log({ blockquoteText })
+    let updatedPage = page
+    if (page.match(blockquoteRegex).length) {
+        updatedPage = page.replace(blockquoteRegex, fact)
     }
-    return new Response(page, {
+    return new Response(updatedPage, {
         headers: {
             "Content-Type": "text/html",
             "Cache-Tag": "trivia",
