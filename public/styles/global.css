@@ -10,13 +10,11 @@ body {
   color: #333;
   background-color: #fefefe;
   margin: 2em auto;
-  max-width: 40em; /* Control the body width */
 }
 
 h1 {
     font-size: 2.5em;
     margin-bottom: 0.5em;
-    color: #2c3e50;
 }
 a {
 text-decoration: none;
@@ -67,4 +65,37 @@ input[type=submit] {
 form {
     display: flex;
     justify-content: flex-start;
+}
+blockquote {
+    font-size: clamp(2.5rem,.7857rem + 3.0612vw,4rem);
+    line-height: 1;
+    margin-left: 0;
+}
+blockquote::before {
+    background-color: rgb(0 0 0/1);
+    content: "";
+    display: block;
+    height: 1rem;
+    width: 20%;
+    margin: 0 0 1rem;
+}
+.main-content {
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1440px;
+    padding: 70px 70px;
+}
+@media screen and (min-width: 900px) and (max-width: 1440px) {
+    .main-content {
+        padding: 40px;
+    }
+}
+@media screen and (max-width: 900px) {
+    .main-content {
+        padding: 30px;
+    }
+}
+time {
+    font-weight: bold;
 }
