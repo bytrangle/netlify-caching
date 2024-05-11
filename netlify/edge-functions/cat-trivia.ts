@@ -25,7 +25,7 @@ export default async (request: Request, context: Context) => {
         headers: {
             "Content-Type": "text/html",
             "Cache-Tag": "trivia",
-            "Cache-Control": "public, max-age=60" // Response will be stored in cache and can be reused while fresh
+            "Cache-Control": "public, max-age=60, must-revalidate" // Response will be stored in cache and can be reused while fresh
             // for 60 seconds. Once it becomes stale, it must be validated with the origin server before reuse.
         }
     })
