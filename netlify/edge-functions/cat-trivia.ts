@@ -18,7 +18,7 @@ export default async (request: Request, context: Context) => {
     }
     if (updatedPage.match(dateRegex).length) {
         const date = new Date()
-        updatedPage = page.replace(dateRegex, date.toLocaleString()) // return date in local timezone
+        updatedPage = page.replace(dateRegex, date.toUTCString()) // return date in UTC time
     }
     return new Response(updatedPage, {
         headers: {

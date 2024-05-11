@@ -126,13 +126,6 @@ declare module 'astro:content' {
 
 	type ContentEntryMap = {
 		"cat-food": {
-"poke-bowl.md": {
-	id: "poke-bowl.md";
-  slug: "poke-bowl";
-  body: string;
-  collection: "cat-food";
-  data: any
-} & { render(): Render[".md"] };
 };
 
 	};
