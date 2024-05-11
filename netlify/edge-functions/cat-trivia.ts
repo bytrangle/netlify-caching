@@ -11,17 +11,21 @@ export default async (request: Request, context: Context) => {
     const fact = json.data[0]
     // Regex for text between block quote
     const blockquoteRegex = /(?<=<blockquote.+>).+(?=<\/blockquote>)/
-    const matched = blockquoteRegex.exec(page)
-    console.log({ matched })
+    const dateRegex = /(?<=<time.+>).+(?=<\/time>)/
     let updatedPage = page
     if (page.match(blockquoteRegex).length) {
         updatedPage = page.replace(blockquoteRegex, fact)
+    }
+    if (updatedPage.match(dateRegex).length) {
+        const date = new Date()
+        updatedPage = page.replace(dateRegex, date.toLocaleString()) // return date in local timezone
     }
     return new Response(updatedPage, {
         headers: {
             "Content-Type": "text/html",
             "Cache-Tag": "trivia",
-            "Cache-Control": "public, max-age=60"
+            "Cache-Control": "public, max-age=60, must-revalidate" // Response will be stored in cache and can be reused while fresh
+            // for 60 seconds. Once it becomes stale, it must be validated with the origin server before reuse.
         }
     })
 }
