@@ -13,12 +13,13 @@ export default async (request: Request, context: Context) => {
     const blockquoteRegex = /(?<=<blockquote.+>).+(?=<\/blockquote>)/
     const dateRegex = /(?<=<time.+>).+(?=<\/time>)/
     let updatedPage = page
-    if (page.match(blockquoteRegex).length) {
-        updatedPage = page.replace(blockquoteRegex, fact)
+    if (updatedPage.match(blockquoteRegex).length) {
+        console.log(updatedPage.match(blockquoteRegex))
+        updatedPage = updatedPage.replace(blockquoteRegex, fact)
     }
     if (updatedPage.match(dateRegex).length) {
         const date = new Date()
-        updatedPage = page.replace(dateRegex, date.toUTCString()) // return date in UTC time
+        updatedPage = updatedPage.replace(dateRegex, date.toUTCString()) // return date in UTC time
     }
     return new Response(updatedPage, {
         headers: {
