@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro"
+import BlockQuote from "../components/BlockQuote.astro"
 const response = await fetch("https://meowfacts.herokuapp.com")
 const json = await response.json()
 console.log(json)
@@ -8,11 +9,8 @@ const date = new Date().toString()
 ---
 <BaseLayout title="Mr Fresh Explores Caching">
   <div class="main-content__text">
-    <h1>Did You Know?</h1>
-    <div>
-      <blockquote id="blockquote">{fact}</blockquote>
-      <aside><p>Last updated time: <time id="last-updated-time">{date}</time></p></aside>
-      </div>
+    <h1>Cache-Control</h1>
+    <BlockQuote quote={fact} updatedTime={new Date().toUTCString()} />
     <p>&#x1F63A; If you refresh this page after 60 seconds, you'll see a new trivia. This is possible thanks to setting the <code>cache-control</code> field in the header of the response to 60.</p>
   </div>
   </BaseLayout>
