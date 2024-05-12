@@ -1,4 +1,4 @@
-import crypto from "crypto"
+import crypto from "node:crypto"
 import type { Config, Context } from "@netlify/edge-functions"
 
 export default async (request: Request, context: Context) => {
