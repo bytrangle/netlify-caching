@@ -3,6 +3,7 @@ import type { Config, Context } from "@netlify/edge-functions"
 
 export default async (request: Request, context: Context) => {
   const response = await context.next()
+  console.log(response)
   let body = await response.text()
   console.log(body)
   const quotes = ["My dear, I'm a cat. Everything I see is mine.", "I don't really have owners. I have staff."]
