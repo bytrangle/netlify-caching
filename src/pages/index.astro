@@ -1,45 +1,65 @@
 ---
+import BaseLayout from "../layouts/BaseLayout.astro"
 import { Image } from "astro:assets"
-import "../styles/global.css"
+import Hero from "../components/Hero.astro"
 import mrFreshImage from "../images/mr._fresh.png"
 ---
 <!-- Below is your "component template." It's just HTML, but with
      some magic sprinkled in to help you build great templates. -->
-<html>
-  <head>
-  </head>
-  <body>
-    <div class="wrapper">
-      <h1>Silly Cat Society</h1>
 
-      <p>Welcome! This is the place where you can chill with meow meow.</p>
-      <Image src={mrFreshImage} alt="mr fresh the silly cat" />
-
-      <p>How about we play a game?</p>
-
-      <p>What is the age of the oldest known cat?</p>
-
-      <div class="purge_buttons">
-        <form action="/" method="get">
-            <label for="guess">Guess:</label>
-            <input type="number" id="guess" name="guess"><br><br>
-            <input type="submit" value="Submit">
-        </form>
+<BaseLayout title="Mr Fresh Explores Caching">
+  <div class="wrapper--max">
+    <Hero imagePath={mrFreshImage} imageAlt="Mr Fresh side glare">
+    <h1>Cache-Control, CDN-Cache-Control, ETag, stale-while-revalidate, oh my</h1>
+    <p>Mr Fresh is dumbfounded by how opaque caching is. So he sets out to make a caching 101 demo for the uninitiated.</p>
+    <div class="cta">
+      <h3>Learn more about...</h3>
+      <i class="line--down"></i>
+      <div class="button-group">
+        <div class="button-container"><a class="button" href="/cache-control">Cache-Control</a></div>
+        <div class="button-container"><a class="button">Netlify-CDN-Cache-Control</a></div>
+        <div class="button-container"><a class="button">ETag</a></div>
+        <div class="button-container"><a class="button">SWR</a></div>
       </div>
-
-      <p>Try reloading this page a couple of times and see how the response eventually is served from cache directly!</p>
     </div>
-  </body>
-  <script>
-//     const response = await fetch('https://catfact.ninja/fact', {
-//   method: "GET",
-//   headers: {
-//     "accept": "application/json",
-//     "X-CSRF-TOKEN": ""
-//   }
-// });
-// console.log(response)
-// const data = await response.json();
-// console.log({ data })
-  </script>
-</html>
+    </Hero>
+  </div>
+</BaseLayout>
+
+<style>
+  .wrapper--max {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1640px;
+  }
+  .cta {
+    background-color: #F2EDE6;
+    border-radius: 24px;
+    max-width: 512px;
+  }
+  @media only screen and (min-width: 720px) {
+    .cta {
+      padding: 24px;
+    }
+  }
+  /* .button-group div:not(:last-child) {
+    color: aqua;
+  } */
+  .line--down {
+    background-color: #F05943;
+    display: block;
+    height: 24px;
+    width: 2px;
+    margin: 16px auto;
+  }
+  .button-group {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .button-container {
+    margin-bottom: 16px;
+    margin-right: 16px;
+  }
+</style>
