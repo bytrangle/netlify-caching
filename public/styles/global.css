@@ -82,7 +82,7 @@ blockquote::before {
     content: "";
     display: block;
     height: 1rem;
-    width: 20%;
+    width: 12%;
     margin: 0 0 1rem;
 }
 .main-content {
