@@ -36,10 +36,14 @@ text-decoration: none;
     body {
         font-size: 14px;
     }
-
-    h1 {
-        font-size: 1.75em;
-    }
+}
+h3 {
+  line-height: 1.2
+}
+@media only screen and (min-width: 720px) {
+  h3 {
+    font-size: 48px;
+  }
 }
 p, ul, li {
     margin-bottom: 1em;
