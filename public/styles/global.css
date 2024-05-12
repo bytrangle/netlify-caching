@@ -93,14 +93,14 @@ blockquote::before {
     padding: 70px 70px;
 }
 @media screen and (min-width: 900px) and (max-width: 1440px) {
-    .main-content {
-        padding: 40px;
-    }
+  .main-content {
+    padding: 40px;
+  }
 }
 @media screen and (max-width: 900px) {
-    .main-content {
-        padding: 30px;
-    }
+  .main-content {
+      padding: 30px;
+  }
 }
 time {
     font-weight: bold;
