@@ -14,8 +14,13 @@ body {
 }
 
 h1 {
-    font-size: 2.5em;
+  line-height: 1.2;
     margin-bottom: 0.5em;
+}
+@media only screen and (min-width: 720px) {
+  h1 {
+    font-size: 64px;
+  }
 }
 a {
 text-decoration: none;
@@ -24,10 +29,6 @@ text-decoration: none;
 @media (max-width: 768px) {
     body {
         font-size: 15px;
-    }
-
-    h1 {
-        font-size: 2em;
     }
 }
 
