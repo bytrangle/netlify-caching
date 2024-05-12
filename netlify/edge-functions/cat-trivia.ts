@@ -33,5 +33,5 @@ export default async (request: Request, context: Context) => {
 
 export const config: Config = {
     cache: "manual",
-    path: "/cat-trivia"
+    path: "/cache-control"
 }
