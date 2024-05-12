@@ -1,39 +1,18 @@
 ---
+import BaseLayout from "../layouts/BaseLayout.astro"
 const response = await fetch("https://meowfacts.herokuapp.com")
 const json = await response.json()
 console.log(json)
 const fact = json.data[0]
 const date = new Date().toString()
 ---
-<html lang="en">
-  <head>
-    <title>Cat Trivia</title>
-    <link rel="stylesheet" href="/styles/global.css">
-  </head>
-  <body>
-    <main class="main-content">
-        <h1>Did You Know?</h1>
-        <div>
-        <blockquote id="blockquote">{fact}</blockquote>
-        <aside><p>Last updated time: <time id="last-updated-time">{date}</time></p></aside>
-        </div>
-        <p>&#x1F63A; If you refresh this page after 60 seconds, you'll see a new trivia. This is possible thanks to setting the <code>cache-control</code> field in the header of the response to 60.</p>
-        <p>Can't wait? Click the below button to purge.</p>
-      </main>
-    <script>
-      // const response = await fetch("https://catfact.ninja/fact", {
-      //   method: "GET",
-      //   headers: {
-      //     "accept": "application/json",
-      //     "X-CSRF-TOKEN": ""
-      //   }
-      // })
-      // const json = await response.json()
-      // console.log(json)
-      // const blockquote = document.getElementById("blockquote")
-      // if (json.fact) {
-      //   blockquote.append(json.fact)
-      // }
-    </script>
-  </body>
-</html>
+<BaseLayout title="Mr Fresh Explores Caching">
+  <div class="main-content">
+    <h1>Did You Know?</h1>
+    <div>
+      <blockquote id="blockquote">{fact}</blockquote>
+      <aside><p>Last updated time: <time id="last-updated-time">{date}</time></p></aside>
+      </div>
+    <p>&#x1F63A; If you refresh this page after 60 seconds, you'll see a new trivia. This is possible thanks to setting the <code>cache-control</code> field in the header of the response to 60.</p>
+  </div>
+  </BaseLayout>
