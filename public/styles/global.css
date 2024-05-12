@@ -142,3 +142,7 @@ time {
 a.button {
   display: inline-block;
 }
+.button:hover, .button:focus {
+  background-color: #035DFB;
+  color: #FFFFFF;
+}
