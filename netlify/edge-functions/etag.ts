@@ -43,6 +43,5 @@ export default async (request: Request, context: Context) => {
 }
 
 export const config: Config = {
-  cache: "manual",
   path: "/etag"
 }
