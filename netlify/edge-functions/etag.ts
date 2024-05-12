@@ -46,7 +46,7 @@ export default async (request: Request, context: Context) => {
   const response = await context.next()
   let body = await response.text()
   console.log(body)
-  console.log(request.headers)
+  console.log(request.headers["if-none-match"])
   return new Response("Hello, world!")
 }
 
