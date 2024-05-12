@@ -19,7 +19,7 @@ export default async (request: Request, context: Context) => {
     updatedBody = updatedBody.replace(dateRegex, new Date().toUTCString())
   }
   // console.log(updatedBody)
-  const etag = `${crypto.createHash("md5").update(body).digest("hex")}`
+  const etag = `${crypto.createHash("md5").update(updatedBody).digest("hex")}`
   const headers = {
     "Content-Type": "text/html",
     "Cache-Control": "public, max-age=0, must-revalidate", // Tell browsers to always revalidate
