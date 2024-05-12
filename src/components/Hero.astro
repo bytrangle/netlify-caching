@@ -1,0 +1,57 @@
+---
+import { Image } from "astro:assets"
+const { imagePath, imageAlt } = Astro.props
+---
+<section class="hero hero--flex">
+  <div class="hero__text">
+    <slot></slot>
+  </div>
+  <div class="hero__image">
+    <Image src={imagePath} alt={imageAlt} />
+  </div>
+</section>
+<style>
+  .hero--flex {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  @media only screen and (min-width: 1024px) {
+    .hero--flex {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+    }
+  }
+  .hero__text {
+    margin-top: 80px;
+    margin-bottom: 80px;
+    text-align: center;
+    width: calc(50% - 8px);
+  }
+  @media only screen and (min-width: 720px) {
+    .hero__text {
+      margin-top: 112px;
+      margin-bottom: 112px;
+    }
+  }
+  @media only screen and (min-width: 1024px) {
+    .hero__text {
+      margin-top: 160px;
+      margin-bottom: 160px;
+    }
+  }
+  @media only screen and (min-width: 1600px) {
+    .hero__text {
+      margin-top: 192px;
+      margin-bottom: 192px;
+    }
+  }
+  .hero__text > :global(*) {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 600px;
+  }
+  .hero__image img {
+    border-radius: 24px;
+  }
+</style>
