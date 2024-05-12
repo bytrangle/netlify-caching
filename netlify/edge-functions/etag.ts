@@ -8,12 +8,14 @@ export default async (request: Request, context: Context) => {
   const quotes = ["My dear, I'm a cat. Everything I see is mine.", "I don't really have owners. I have staff."]
   const quote = Math.random() < 0.5 ? quotes[0] : quotes[1]
   const quoteRegex = new RegExp(quote)
-  const quoteElementRegex = /(<blockquote.*>)(.+)(<\/blockquote>)/
+  const quoteElementRegex = /(?<=<blockquote.+>).+(?=<\/blockquote>)/
   const dateRegex = /(?<=<time.+>).+(?=<\/time>)/
   let updatedBody = body
   // // Only modify the response if the newly chosen quote is different from the last one
   if (!updatedBody.match(quoteRegex)) {
-    updatedBody = updatedBody.replace(quoteElementRegex, `$1${quote}$2`)
+    updatedBody = updatedBody.replace(quoteElementRegex, quote)
+    console.log("Updated body after replacing quote:")
+    console.log(updatedBody)
     updatedBody = updatedBody.replace(dateRegex, new Date().toUTCString())
   }
   console.log(updatedBody)
