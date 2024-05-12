@@ -1,0 +1,15 @@
+---
+const { quote, updatedTime } = Astro.props
+---
+<div class="blockquote-container">
+  <blockquote id="blockquote">{quote}</blockquote>
+  <aside><p>Last updated time: <time id="last-updated-time">{updatedTime}</time></p></aside>
+</div>
+<style>
+  .blockquote-container {
+    margin-bottom: 32px;
+  }
+  blockquote {
+    margin-bottom: 16px;
+  }
+</style>
