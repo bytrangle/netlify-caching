@@ -42,7 +42,13 @@ import type { Config, Context } from "@netlify/edge-functions"
 //   })
 // }
 
-export default async () => new Response("Hello, world!")
+export default async (request: Request, context: Context) => {
+  const response = await context.next()
+  let body = await response.text()
+  console.log(body)
+  console.log(request.headers)
+  return new Response("Hello, world!")
+}
 
 export const config: Config = {
   path: "/etag"
