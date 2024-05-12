@@ -10,10 +10,11 @@ export default async (request: Request, context: Context) => {
   const quoteElementRegex = /(<blockquote.*>)(.+)(<\/blockquote>)/
   const dateRegex = /(?<=<time.+>).+(?=<\/time>)/
   // Only modify the response if the newly chosen quote is different from the last one
-  if (!body.match(quoteRegex).length) {
+  if (!body.match(quoteRegex)) {
     body = body.replace(quoteElementRegex, `$1${quote}$2`)
     body = body.replace(dateRegex, new Date().toUTCString())
   }
+  console.log(body)
   const etag = `${crypto.createHash("md5").update(body).digest("hex")}`
   const headers = {
     "Content-Type": "text/html",
