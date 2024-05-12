@@ -10,12 +10,13 @@ export default async (request: Request, context: Context) => {
   const quoteRegex = new RegExp(quote)
   const quoteElementRegex = /(<blockquote.*>)(.+)(<\/blockquote>)/
   const dateRegex = /(?<=<time.+>).+(?=<\/time>)/
+  let updatedBody = body
   // // Only modify the response if the newly chosen quote is different from the last one
-  if (!body.match(quoteRegex)) {
-    body = body.replace(quoteElementRegex, `$1${quote}$2`)
-    body = body.replace(dateRegex, new Date().toUTCString())
+  if (!updatedBody.match(quoteRegex)) {
+    updatedBody = updatedBody.replace(quoteElementRegex, `$1${quote}$2`)
+    updatedBody = updatedBody.replace(dateRegex, new Date().toUTCString())
   }
-  console.log(body)
+  console.log(updatedBody)
   // const etag = `${crypto.createHash("md5").update(body).digest("hex")}`
   // const headers = {
   //   "Content-Type": "text/html",
@@ -30,9 +31,13 @@ export default async (request: Request, context: Context) => {
   //   })
   // }
   // console.log("Regenerating quote")
-  return new Response(body, {
-    status: 200,
-    // headers
+  return new Response(updatedBody, {
+    headers: {
+      "Content-Type": "text/html",
+      "Cache-Tag": "trivia",
+      "Cache-Control": "public, max-age=60, must-revalidate" // Response will be stored in cache and can be reused while fresh
+      // for 60 seconds. Once it becomes stale, it must be validated with the origin server before reuse.
+    }
   })
 }
 
