@@ -2,10 +2,18 @@
 import BaseLayout from "../layouts/BaseLayout.astro"
 import BlockQuote from "../components/BlockQuote.astro"
 ---
-<BaseLayout title="Mr Fresh Explores Caching">
-  <div class="main-content__text">
-    <h1>ETag</h1>
-    <BlockQuote quote="MR_FRESH_MOTTO" updatedTime={new Date().toUTCString()} />
-    <p>&#x1F63A; This page randomly displays either of two mottos by Mr Fresh. The next time you refresh the page, if the chosen motto remains the same as the previous one, you'll get a 304 response. This is thanks to the handling of conditional requests using <code>ETag</code> and <code>If-None-Match</code> in Netlify Edge Nodes.
-  </div>
-</BaseLayout>
+<html lang="en">
+  <head>
+    <title>Cache-Control</title>
+    <link rel="stylesheet" href="/styles/global.css">
+  </head>
+  <body>
+    <main class="main"></main>
+      <div class="main-content__text">
+        <h1>ETag</h1>
+        <BlockQuote quote="MR_FRESH_MOTTO" updatedTime={new Date().toUTCString()} />
+        <p>&#x1F63A; This page randomly displays either of two mottos by Mr Fresh. The next time you refresh the page, if the chosen motto remains the same as the previous one, you'll get a 304 response. This is thanks to the handling of conditional requests using <code>ETag</code> and <code>If-None-Match</code> in Netlify Edge Nodes.
+      </div>
+    </main>
+  </body>
+</html>
