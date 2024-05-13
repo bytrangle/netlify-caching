@@ -1,7 +1,9 @@
 import type { Config, Context } from "@netlify/edge-functions"
 
 export default async (request: Request, context: Context) => {
-  return new Response("Hello World!", {
+  const response = await context.next()
+  const text = await response.text()
+  return new Response(text.toUpperCase(), {
     headers: {
       "content-type": "text/html"
     }
