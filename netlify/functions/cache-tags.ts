@@ -17,7 +17,9 @@ export default async () => {
             <blockquote id="blockquote">${fact}</blockquote>
             <aside><p>Last updated time: <time id="last-updated-time">${new Date().toUTCString()}</time></p></aside>
           </div>
-          <p>&#x1F63A; The <code>Netlify-Cdn-Cache-Control</code> field of the response header has been set to 31536000. This means you will get this same fact for a year, unless there is a new deploy! Can't wait? Click the purge button.</p>
+          <p>&#x1F63A; The <code>Netlify-Cdn-Cache-Control</code> field of the response header has been set to 31536000. This means you will get this same fact for a year, unless there is a new deploy!</p>
+          <p>Okay, may be not, because Mr Fresh has told Netlify to revalidate through setting <code>must-revalidate</code>  in the <code>Netlify-CDN-Cache-Control</code> of the response header.</p>
+          <p>Can't wait? Click the purge button &#x1F447.</p>
           <div class="purge_buttons">
             <form action="/purge?tag=cat-facts" method="post">
               <button name="purge">Purge with electronics tag</button>
