@@ -2,10 +2,7 @@ import type { Config, Context } from "@netlify/edge-functions"
 
 export default async (request: Request, context: Context) => {
   const response = await context.next()
-  console.log(response.headers)
   const text = await response.text()
-  const quoteElementRegex = /(?<=<blockquote.+>).+(?=<\/blockquote>)/
-  let updatedText = text.replace(quoteElementRegex, "I don't really have owners. I have staff.")
   return new Response(text, {
     headers: {
       "content-type": "text/html;charset=utf-8",
