@@ -31,7 +31,7 @@ export default async () => {
     headers: {
       "Content-Type": "text/html",
       "Cache-Tag": "cat-facts",
-      "Netlify-Cdn-Cache-Control": "public, s-maxage=31536000, must-revalidate", // Tell Netlify to cache the content up to 1 year
+      "Netlify-CDN-Cache-Control": "public, s-maxage=31536000, must-revalidate", // Tell Netlify to cache the content up to 1 year
       "Cache-Control": "public, max-age=0, must-revalidate" // Tell the browser to always revalidate
     }
   });
