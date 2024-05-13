@@ -15,7 +15,7 @@ export default async () => {
       <main class="main>
         <div class="main-content__text>
           <h1>Cache-Tag Demo</h1>
-          div class="blockquote-container">
+          <div class="blockquote-container">
             <blockquote id="blockquote">${fact}</blockquote>
             <aside><p>Last updated time: <time id="last-updated-time">${new Date().toUTCString()}</time></p></aside>
           </div>
