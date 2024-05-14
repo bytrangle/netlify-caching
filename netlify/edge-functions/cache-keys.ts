@@ -2,6 +2,7 @@ import type { Config, Context } from "@netlify/edge-functions"
 
 export default async (request: Request, context: Context) => {
   const response = await context.next()
+  if (response.status !== 200) return response
   const text = await response.text()
   console.log(text)
   return new Response(text, {
