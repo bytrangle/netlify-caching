@@ -8,7 +8,7 @@ export default async (request: Request, context: Context) => {
 
   const transformer = new TransformStream({
     transform(chunk, controller) {
-      controller.enqueue(chunk.tolowercase())
+      controller.enqueue(chunk.toLowerCase())
   //     controller.enqueue(chunk.toString().replace(/MR_FRESH_QUOTE/g, "Blossom tea time"))
     }
   })
